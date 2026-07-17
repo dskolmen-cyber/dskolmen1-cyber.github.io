@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Наша свадьба</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        /* Фоновая картинка из Pinterest */
+        background-image: url('https://i.pinimg.com/736x/7f/d6/20/7fd6201cd6413cc7a6d917385afcea56.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Подложка поверх картинки, чтобы кнопка и текст (если добавишь) читались */
+      .overlay {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.65); /* Полупрозрачный белый */
+        z-index: 1;
+      }
+
+      .petal {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 35px solid transparent;
+        border-right: 35px solid transparent;
+        border-bottom: 60px solid #ffe0e6;
+        transform-origin: bottom center;
+        opacity: 0.4;
+        animation: float 18s infinite linear, sway 3s infinite ease-in-out;
+        z-index: 2; /* Лепестки поверх картинки и подложки, но под кнопкой */
+      }
+      .petal:nth-child(2) { animation-delay: -6s; }
+      .petal:nth-child(3) { animation-delay: -12s; }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-80px) scale(0.9); }
+      }
+      @keyframes sway {
+        0%, 100% { rotate: 0deg; }
+        50% { rotate: 5deg; }
+      }
+
+      .btn {
+        padding: 18px 36px;
+        font-size: 22px;
+        background-color: #d4a373;
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        box-shadow: 0 8px 20px rgba(212, 163, 115, 0.5);
+        transition: transform 0.2s, box-shadow 0.2s;
+        z-index: 3; /* Кнопка поверх всего */
+        position: relative;
+        display: inline-block;
+      }
+      .btn:hover {
+        transform: scale(1.07);
+        box-shadow: 0 12px 30px rgba(212, 163, 115, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Подложка для читаемости -->
+    <div class="overlay"></div>
+
+    <!-- Декоративные лепестки -->
+    <div class="petal" style="top:15%; left:10%;"></div>
+    <div class="petal" style="bottom:20%; right:15%; border-bottom-color:#fff0f5;"></div>
+    <div class="petal" style="top:45%; left:25%; border-bottom-color:#ffe6ec;"></div>
+
+    <a href="invite.html" class="btn">Посмотреть приглашение</a>
+  </body>
+</html>
